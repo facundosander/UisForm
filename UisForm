@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoCompleteTaFaceVssNADCaja</title>
+  <!-- Se agrega la referencia a la hoja de estilo Materialize -->
+  <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <!-- Se agrega la referencia a la fuente de Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    /* Se ajusta el estilo del formulario */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f2f2f2;
+      padding: 1rem;
+      margin-top: 0.01rem;
+    }
+    /* Se ajusta el estilo de los campos de formulario */
+    fieldset {
+      width: 50%;
+      padding: 1rem;
+      border: none;
+      border-radius: 5px;
+      margin-top: 0.01rem;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      background-color: #fff;
+    }
+    .form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 0.01rem;
+}
+    
+    .form-control {
+      width: 100%;
+    height: 200px;
+    width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.01rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+    .form-control:focus {
+      outline: none;
+      border: 1px solid blue;
+    }
+  /* Se ajusta el estilo del área de texto */
+  .txt-area {
+    height: 130px;
+    width: 100%;
+  }
+    /* Se ajusta el estilo del botón */
+    button[type="button"] {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      background-color: #0074d9;
+      color: #fff;
+      margin-top: 1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+    /* Se ajusta el estilo de las etiquetas */
+label {
+font-weight: 600;
+margin-bottom: 0.01rem;
+font-size: 0.9rem; /* Ajusta el tamaño de la fuente */
+}
+
+/* Estilo para el botón de retroceso */
+.btn-back {
+position: absolute;
+bottom: 10px;
+right: 10px;
+background-color: transparent;
+border: none;
+color: #000;
+}
+
+/* Ajuste de tamaño de fuente para el icono del botón de retroceso */
+.btn-back i {
+font-size: 24px;
+}
+
+</style>
+<!-- Comienzo del cuerpo de la página -->
+<body>
+  <!-- Formulario de entrada de datos -->
+  <form>
+    <fieldset>
+      <!-- Grupo de formularios para la empresa -->
+      <div class="form-group">
+        <!-- Etiqueta para la empresa -->
+        <label for="txtRazonS">Empresa:</label>
+        <!-- Entrada de texto para la empresa -->
+        <input type="text" id="txtRazonS" class="form-control">
+        <!-- Mensaje de error para la empresa -->
+        <span id="errorRazonS" style="display:none; color:red;">Por favor, introduzca la Empresa</span>
+      </div>
+      <!-- Grupo de formularios para el RUT -->
+      <div class="form-group">
+        <!-- Etiqueta para el RUT -->
+        <label for="txtRut">Rut:</label>
+        <!-- Entrada de texto para el RUT -->
+        <input type="text" id="txtRut" class="form-control">
+        <!-- Mensaje de error para el RUT -->
+        <span id="errorRut" style="display:none; color:red;">Por favor, introduzca la Rut</span>
+      </div>
+      <!-- Grupo de formularios para el teléfono -->
+      <div class="form-group">
+        <!-- Etiqueta para el teléfono -->
+        <label for="txtTelefono">Teléfono:</label>
+        <!-- Entrada de texto para el teléfono -->
+        <input type="text" id="txtTelefono" class="form-control">
+        <!-- Mensaje de error para el teléfono -->
+        <span id="errorTelefono" style="display:none; color:red;">Por favor, introduzca el Teléfono</span>
+      </div>
+      <!-- Grupo de formularios para el contacto -->
+      <div class="form-group">
+        <!-- Etiqueta para el contacto -->
+        <label for="txtContacto">Contacto:</label>
+        <!-- Entrada de texto para el contacto -->
+        <input type="text" id="txtContacto" class="form-control">
+        <!-- Mensaje de error para el contacto -->
+        <span id="errorContacto" style="display:none; color:red;">Por favor, introduce el Contacto</span>
+      </div>
+      <!-- Comentario para el campo de problema -->
+<div class="form-group">
+  <label for="txtProblema">Problema:</label>
+  <input type="text" id="txtProblema" class="form-control">
+  <!-- Mensaje de error para el problema -->
+  <span id="errorProblema" style="display:none; color:red;">Por favor, introduce el Problema</span>
+</div>
+<!-- Comentario para el campo de transferido a -->
+<div class="form-group">
+  <label for="txtTransferidoA">Transferido a:</label>
+  <input type="text" id="txtTransferidoA" class="form-control">
+  <!-- Mensaje de error para el transferido a -->
+  <span id="errorTransferidoA" style="display:none; color:red;">Por favor, introduce el Transferido a</span>
+</div>
+
+<!-- Comentario para el botón de cargar información -->
+<div class="form-group">
+  <button type="button" id="btnCargar" onclick="Cargar();">Cargar Información</button>
+</div>
+<!-- Comentario para el campo de output -->
+<div class="form-group">
+  <label for="txtOutput1">Output:</label>
+  <textarea id="txtOutput" class="txt-area"></textarea>
+</div>
+<!-- Comentario para el botón de copiar al portapapeles -->
+<div class="form-group">
+  <button type="button" class="btn-back" onclick="if (backup) { navigator.clipboard.writeText(backup); showPopup(); }">
+    <i class="material-icons">arrow_back</i>
+  </button>        
+</div>
+    </fieldset>
+  </form>
+  <script>
+    var backup;
+
+// Función que muestra un mensaje flotante en la pantalla
+function showPopup() {
+  // Creación del elemento "div"
+  var popup = document.createElement("div");
+  popup.innerHTML = "Información copiada al portapapeles";
+  popup.style.backgroundColor = "lightgreen";
+  popup.style.padding = "20px";
+  popup.style.position = "fixed";
+  popup.style.top = "20px";
+  popup.style.right = "20px";
+  popup.style.zIndex = "999";
+  document.body.appendChild(popup);
+
+  // Desvanecimiento del mensaje después de 3 segundos
+  setTimeout(function() {
+    popup.style.opacity = "0";
+    setTimeout(function() {
+      document.body.removeChild(popup);
+    }, 1000);
+  }, 3000);
+}
+
+// Evento para activar el botón al presionar la tecla "Enter"
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("btnCargar").click();
+  }
+});
+
+// Función para enfocar el primer campo faltante
+function focusOnMissingField() {
+  var missingFields = [];
+
+  // Verificación de cada uno de los campos requeridos
+  if (!document.getElementById('txtRazonS').value) {
+    missingFields.push(document.getElementById('txtRazonS'));
+  }
+  if (!document.getElementById('txtRut').value) {
+    missingFields.push(document.getElementById('txtRut'));
+  }
+  if (!document.getElementById('txtTelefono').value) {
+    missingFields.push(document.getElementById('txtTelefono'));
+  }
+  if (!document.getElementById('txtContacto').value) {
+    missingFields.push(document.getElementById('txtContacto'));
+  }
+  if (!document.getElementById('txtProblema').value) {
+    missingFields.push(document.getElementById('txtProblema'));
+  }
+  if (!document.getElementById('txtTransferidoA').value) {
+    missingFields.push(document.getElementById('txtTransferidoA'));
+  }
+
+  // Enfocando el primer campo faltante
+  if (missingFields.length > 0) {
+    missingFields[0].focus();
+    window.scrollTo(0, missingFields[0].offsetTop);
+    return false;
+  }
+
+  return true;
+}
+
+// Función para cargar la información en el campo de salida
+function Cargar() {
+// Verifica si el campo de salida no está vacío
+if (document.getElementById("txtOutput").value !== "") {
+// Realiza un backup de los datos en el campo de salida
+backup = document.getElementById("txtOutput").value;
+}
+// Verifica que cada uno de los siguientes campos tenga un valor
+if (!document.getElementById('txtRazonS').value) {
+// Muestra un mensaje de error y llama a la función focusOnMissingField
+document.getElementById('errorRazonS').style.display = "block";
+focusOnMissingField();
+} else if (!document.getElementById('txtRut').value) {
+// Muestra un mensaje de error y llama a la función focusOnMissingField
+document.getElementById('errorRut').style.display = "block";
+focusOnMissingField();
+} else if (!document.getElementById('txtTelefono').value) {
+// Muestra un mensaje de error y llama a la función focusOnMissingField
+document.getElementById('errorTelefono').style.display = "block";
+focusOnMissingField();
+} else if (!document.getElementById('txtContacto').value) {
+// Muestra un mensaje de error y llama a la función focusOnMissingField
+document.getElementById('errorContacto').style.display = "block";
+focusOnMissingField();
+} else if (!document.getElementById('txtProblema').value) {
+// Muestra un mensaje de error y llama a la función focusOnMissingField
+document.getElementById('errorProblema').style.display = "block";
+focusOnMissingField();
+} else if (!document.getElementById('txtTransferidoA').value) {
+// Muestra un mensaje de error y llama a la función focusOnMissingField
+document.getElementById('errorTransferidoA').style.display = "block";
+focusOnMissingField();
+} else {
+// Si todos los campos tienen valor, oculta todos los mensajes de error
+document.getElementById('errorRazonS').style.display = "none";
+document.getElementById('errorRut').style.display = "none";
+document.getElementById('errorTelefono').style.display = "none";
+document.getElementById('errorContacto').style.display = "none";
+document.getElementById('errorProblema').style.display = "none";
+document.getElementById('errorTransferidoA').style.display = "none";
+// Carga la información en el campo de salida
+    document.getElementById('txtOutput').value = "-                  Empresa: " + document.getElementById('txtRazonS').value + "\n-                  Rut: " + document.getElementById('txtRut').value + "\n-                  Teléfono: " + document.getElementById('txtTelefono').value + "\n-                  Contacto: " + document.getElementById('txtContacto').value + "\n-                  Problema: " + document.getElementById('txtProblema').value + "\n-             Transferido A: " + document.getElementById('txtTransferidoA').value;
+    document.getElementById('txtRazonS').value = "";
+    document.getElementById('txtRut').value = "";
+    document.getElementById('txtTelefono').value = "";
+    document.getElementById('txtContacto').value = "";
+    document.getElementById('txtProblema').value = "";
+    document.getElementById('txtTransferidoA').value = "";
+    // Crea una variable para copiarla al portapapeles e invoca el showPopup
+    var txtOutput = document.getElementById("txtOutput");
+    txtOutput.select();
+    document.execCommand("copy");
+    showPopup();
+    // Scrollea hasta abajo
+    document.getElementById("txtOutput").scrollIntoView({behavior: "smooth", block: "end"});
+    
+    }
+
+  }
+
+  </script>
+</body>
+</html>
