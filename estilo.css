@@ -1,0 +1,78 @@
+
+    /* Se ajusta el estilo del formulario */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f2f2f2;
+      padding: 1rem;
+      margin-top: 0.01rem;
+    }
+    /* Se ajusta el estilo de los campos de formulario */
+    fieldset {
+      width: 50%;
+      padding: 1rem;
+      border: none;
+      border-radius: 5px;
+      margin-top: 0.01rem;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      background-color: #fff;
+    }
+    .form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 0.01rem;
+}
+    
+    .form-control {
+      width: 100%;
+    height: 200px;
+    width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.01rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+    .form-control:focus {
+      outline: none;
+      border: 1px solid blue;
+    }
+  /* Se ajusta el estilo del área de texto */
+  .txt-area {
+    height: 130px;
+    width: 100%;
+  }
+    /* Se ajusta el estilo del botón */
+    button[type="button"] {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      background-color: #0074d9;
+      color: #fff;
+      margin-top: 1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+    /* Se ajusta el estilo de las etiquetas */
+label {
+font-weight: 600;
+margin-bottom: 0.01rem;
+font-size: 0.9rem; /* Ajusta el tamaño de la fuente */
+}
+
+/* Estilo para el botón de retroceso */
+.btn-back {
+position: absolute;
+bottom: 10px;
+right: 10px;
+background-color: transparent;
+border: none;
+color: #000;
+}
+
+/* Ajuste de tamaño de fuente para el icono del botón de retroceso */
+.btn-back i {
+font-size: 24px;
+}
+

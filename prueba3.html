@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoCompleteTaFaceVssNADCaja</title>
+  <!-- Se agrega la referencia a la hoja de estilo Materialize -->
+  <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <!-- Se agrega la referencia a la fuente de Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<!-- Comienzo del cuerpo de la página -->
+<body>
+  <!-- Formulario de entrada de datos -->
+  <form>
+    <fieldset>
+      <!-- Grupo de formularios para la empresa -->
+      <div class="form-group">
+        <!-- Etiqueta para la empresa -->
+        <label for="txtRazonS">Empresa:</label>
+        <!-- Entrada de texto para la empresa -->
+        <input type="text" id="txtRazonS" class="form-control">
+        <!-- Mensaje de error para la empresa -->
+        <span id="errorRazonS" style="display:none; color:red;">Por favor, introduzca la Empresa</span>
+      </div>
+      <!-- Grupo de formularios para el RUT -->
+      <div class="form-group">
+        <!-- Etiqueta para el RUT -->
+        <label for="txtRut">Rut:</label>
+        <!-- Entrada de texto para el RUT -->
+        <input type="text" id="txtRut" class="form-control">
+        <!-- Mensaje de error para el RUT -->
+        <span id="errorRut" style="display:none; color:red;">Por favor, introduzca la Rut</span>
+      </div>
+      <!-- Grupo de formularios para el teléfono -->
+      <div class="form-group">
+        <!-- Etiqueta para el teléfono -->
+        <label for="txtTelefono">Teléfono:</label>
+        <!-- Entrada de texto para el teléfono -->
+        <input type="text" id="txtTelefono" class="form-control">
+        <!-- Mensaje de error para el teléfono -->
+        <span id="errorTelefono" style="display:none; color:red;">Por favor, introduzca el Teléfono</span>
+      </div>
+      <!-- Grupo de formularios para el contacto -->
+      <div class="form-group">
+        <!-- Etiqueta para el contacto -->
+        <label for="txtContacto">Contacto:</label>
+        <!-- Entrada de texto para el contacto -->
+        <input type="text" id="txtContacto" class="form-control">
+        <!-- Mensaje de error para el contacto -->
+        <span id="errorContacto" style="display:none; color:red;">Por favor, introduce el Contacto</span>
+      </div>
+      <!-- Comentario para el campo de problema -->
+<div class="form-group">
+  <label for="txtProblema">Problema:</label>
+  <input type="text" id="txtProblema" class="form-control">
+  <!-- Mensaje de error para el problema -->
+  <span id="errorProblema" style="display:none; color:red;">Por favor, introduce el Problema</span>
+</div>
+<!-- Comentario para el campo de transferido a -->
+<div class="form-group">
+  <label for="txtTransferidoA">Transferido a:</label>
+  <input type="text" id="txtTransferidoA" class="form-control">
+  <!-- Mensaje de error para el transferido a -->
+  <span id="errorTransferidoA" style="display:none; color:red;">Por favor, introduce el Transferido a</span>
+</div>
+
+<!-- Comentario para el botón de cargar información -->
+<div class="form-group">
+  <button type="button" id="btnCargar" onclick="Cargar();">Cargar Información</button>
+</div>
+<!-- Comentario para el campo de output -->
+<div class="form-group">
+  <label for="txtOutput1">Output:</label>
+  <textarea id="txtOutput" class="txt-area"></textarea>
+</div>
+<!-- Comentario para el botón de copiar al portapapeles -->
+<div class="form-group">
+  <button type="button" class="btn-back" onclick="if (backup) { navigator.clipboard.writeText(backup); showPopup(); }">
+    <i class="material-icons">arrow_back</i>
+  </button>        
+</div>
+    </fieldset>
+  </form>
+  <script src="scripts.js"></script>
+</body>
+</html>
